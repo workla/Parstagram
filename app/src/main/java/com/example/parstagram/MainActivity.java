@@ -149,9 +149,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Return the file target for the photo based on filename
-        File file = new File(mediaStorageDir.getPath() + File.separator + fileName);
-
-        return file;
+        return new File(mediaStorageDir.getPath() + File.separator + fileName);
     }
 
 
