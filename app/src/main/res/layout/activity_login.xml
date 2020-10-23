@@ -9,6 +9,19 @@
     android:layout_margin="16dp"
     tools:context=".LoginActivity">
 
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon" />
+
+    <ImageView
+        android:id="@+id/ivName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/nav_logo_whiteout" />
+
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
@@ -33,6 +46,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@color/InstaBlue"
+        android:textColor="@color/White"
+        android:layout_marginTop="5dp"
         android:text="@string/login" />
 
     <Button
@@ -40,6 +56,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@color/InstaBlue"
+        android:textColor="@color/White"
+        android:layout_marginTop="5dp"
         android:text="@string/sign_up" />
 
 

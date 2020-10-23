@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="InstaBlue">#405DE6</color>
+    <color name="InstaPurple">#833AB4</color>
+    <color name="InstaPink">#C13584</color>
+    <color name="InstaRed">#E1306C</color>
+    <color name="InstaSuperRed">#FD1D1D</color>
+    <color name="InstaOrange">#FCAF45</color>
+    <color name="InstaYellow">#FFDC80</color>
+    <color name="White">#FFFFFF</color>
+
+    <color name="colorPrimary">#405DE6</color>
+    <color name="colorPrimaryDark">#C13584</color>
+    <color name="colorAccent">#FCAF45</color>
 </resources>

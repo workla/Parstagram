@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="16dp"
     tools:context=".MainActivity">
@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:ems="10"
         android:hint="@string/description"
+        android:layout_weight="0"
         />
 
     <Button
@@ -22,12 +23,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/take_picture"
+        android:layout_weight="0"
+        android:background="@color/InstaBlue"
+        android:textColor="@color/White"
         />
 
     <ImageView
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0"
+        app:srcCompat="@drawable/image_placeholder"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
@@ -35,13 +43,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/submit"
+        android:layout_weight="0"
+        android:background="@color/InstaBlue"
+        android:textColor="@color/White"
         />
 
-    <Button
-        android:id="@+id/btnLogout"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:text="@string/log_out" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/InstaBlue"
+            android:textColor="@color/White"
+            android:text="@string/log_out" />
+
+    </LinearLayout>
 
 </LinearLayout>
