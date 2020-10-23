@@ -27,9 +27,24 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+The first gif shows the basic functionality.  First a nonexistent user tries to log in and it doesn't work.  Then a known user logs in and it works.  Then a sample post is shown being created.  Then the app is shown not allowing a post missing either a description or picture.  Fianlly, the current user logs out, which takes them back to the login activity.
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+<img src='loginAndLogout.gif' title='Basic Functionality' width='' alt='Video Walkthrough' />
+
+
+The second gif shows teh creation of a user.  The new user info is typed on the login screen and sign up is hit.  The parse window shows that the user did not exist before, but now exists within the parse users.  It also shows the instagram icon replacing the generic android icon.
+
+<img src='createUser.gif' title='Flipping Orientation' width='' alt='Flipping Orientation' />
+
+
+The third gif shows the Parse side of a post creation.  Only five posts are in Parse prior to the gif.  Then the user creates a post, and the updated Parse post page shows a sixth post with thye cat description and image.
+
+<img src='createPostWithPic.gif' title='Flipping Orientation' width='' alt='Flipping Orientation' />
+
+
+The final gif shows that user login persists between app restarts.  The user logs in and the app is then closed.  When reopened, the user is still logged in.
+
+<img src='persists.gif' title='Flipping Orientation' width='' alt='Flipping Orientation' />
 
 ## Notes
 
