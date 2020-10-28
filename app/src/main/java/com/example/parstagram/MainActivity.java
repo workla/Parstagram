@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.parstagram.fragments.ComposeFragment;
+import com.example.parstagram.fragments.PostsFragment;
 import com.example.parstagram.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
@@ -55,17 +56,14 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
-                        fragment = new ComposeFragment();
-                        Toast.makeText(MainActivity.this, "Clicked Home!", Toast.LENGTH_LONG).show();
+                        fragment = new PostsFragment();
                         break;
                     case R.id.action_compose:
                         fragment = new ComposeFragment();
-                        Toast.makeText(MainActivity.this, "Clicked Compose!", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.action_profile:
                     default:
                         fragment = new ProfileFragment();
-                        Toast.makeText(MainActivity.this, "Clicked Profile!", Toast.LENGTH_LONG).show();
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
@@ -74,5 +72,34 @@ public class MainActivity extends AppCompatActivity {
         });
         bottomNavigationView.setSelectedItemId(R.id.action_home);
     }
+
+//    private Button btnLogout;
+//        btnLogout = view.findViewById(R.id.btnLogout);
+//        btnLogout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                logout();
+//            }
+//        });
+
+
+
+    //    private void logout() {
+//        ParseUser.logOut();
+//        ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+//        if (currentUser == null) {
+//            //logout successful
+//            Log.i(TAG, "Logout successful");
+//            Toast.makeText(getContext(), "Success!", Toast.LENGTH_LONG).show();
+//            Intent intent = new Intent(getActivity(), LoginActivity.class);
+//            startActivity(intent);
+//            getActivity().finish();
+//        }
+//        else {
+//            //failure during logout
+//            Log.e(TAG, "Error while logging out");
+//            Toast.makeText(getContext(), "Error while logging out", Toast.LENGTH_LONG).show();
+//        }
+//    }
 
 }

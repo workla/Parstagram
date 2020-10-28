@@ -1,70 +1,38 @@
 package com.example.parstagram.fragments;
 
-import android.content.Intent;
-import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.example.parstagram.LoginActivity;
-import com.example.parstagram.MainActivity;
-import com.example.parstagram.R;
+import com.example.parstagram.Post;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class ProfileFragment extends Fragment {
+import java.util.List;
 
-    public static final String TAG = "ProfileFragment";
-    private Button btnLogout;
+import static com.example.parstagram.Post.KEY_CREATED_AT;
 
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
-
-
+public class ProfileFragment extends PostsFragment {
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        btnLogout = view.findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
+    protected void queryPosts() {
+        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
+        query.include(Post.KEY_USER);
+        query.whereEqualTo(Post.KEY_USER, ParseUser.getCurrentUser());
+        query.setLimit(20);
+        query.addDescendingOrder(KEY_CREATED_AT);
+        query.findInBackground(new FindCallback<Post>() {
             @Override
-            public void onClick(View v) {
-                logout();
+            public void done(List<Post> posts, ParseException e) {
+                if (e != null) {
+                    Log.e(TAG, "Error querying for posts", e);
+                    return;
+                }
+                for(Post post: posts) {
+                    Log.i(TAG, "Post: " + post.getDescription() + " username: " + post.getUser().getUsername());
+                }
+                allPosts.addAll(posts);
+                adapter.notifyDataSetChanged();
             }
         });
-    }
-
-    private void logout() {
-        ParseUser.logOut();
-        ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
-        if (currentUser == null) {
-            //logout successful
-            Log.i(TAG, "Logout successful");
-            Toast.makeText(getContext(), "Success!", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(getActivity(), LoginActivity.class);
-            startActivity(intent);
-            getActivity().finish();
-        }
-        else {
-            //failure during logout
-            Log.e(TAG, "Error while logging out");
-            Toast.makeText(getContext(), "Error while logging out", Toast.LENGTH_LONG).show();
-        }
     }
 }
