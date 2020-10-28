@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         bottomNavigationView = findViewById(R.id.bottomNavigation);
         final FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -73,6 +76,25 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.action_home);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.miLogout:
+                logout();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 //    private Button btnLogout;
 //        btnLogout = view.findViewById(R.id.btnLogout);
 //        btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -84,22 +106,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    //    private void logout() {
-//        ParseUser.logOut();
-//        ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
-//        if (currentUser == null) {
-//            //logout successful
-//            Log.i(TAG, "Logout successful");
-//            Toast.makeText(getContext(), "Success!", Toast.LENGTH_LONG).show();
-//            Intent intent = new Intent(getActivity(), LoginActivity.class);
-//            startActivity(intent);
-//            getActivity().finish();
-//        }
-//        else {
-//            //failure during logout
-//            Log.e(TAG, "Error while logging out");
-//            Toast.makeText(getContext(), "Error while logging out", Toast.LENGTH_LONG).show();
-//        }
-//    }
+        private void logout() {
+        ParseUser.logOut();
+        ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+        if (currentUser == null) {
+            //logout successful
+            Log.i(TAG, "Logout successful");
+            Toast.makeText(MainActivity.this, "Success!", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else {
+            //failure during logout
+            Log.e(TAG, "Error while logging out");
+            Toast.makeText(MainActivity.this, "Error while logging out", Toast.LENGTH_LONG).show();
+        }
+    }
 
 }

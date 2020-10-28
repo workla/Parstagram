@@ -13,14 +13,16 @@
         android:id="@+id/ivLogo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@drawable/icon"
+        android:contentDescription="@string/instagram_logo" />
 
     <ImageView
         android:id="@+id/ivName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        app:srcCompat="@drawable/nav_logo_whiteout" />
+        app:srcCompat="@drawable/logo_transparent"
+        android:contentDescription="@string/parstagram_name" />
 
     <EditText
         android:id="@+id/etUsername"
