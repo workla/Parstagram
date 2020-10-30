@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,6 +35,7 @@ public class PostsFragment extends Fragment {
     private RecyclerView rvPosts;
     protected PostsAdapter adapter;
     protected List<Post> allPosts;
+    protected SwipeRefreshLayout swipeContainer;
 
 
     public PostsFragment() {
@@ -59,6 +61,21 @@ public class PostsFragment extends Fragment {
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
         queryPosts();
+
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                queryPosts();
+                adapter.clear();
+                adapter.addAll(allPosts);
+                swipeContainer.setRefreshing(false);
+            }
+        });
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_dark,
+                android.R.color.holo_purple,
+                android.R.color.holo_red_dark,
+                android.R.color.holo_orange_dark);
     }
 
     protected void queryPosts() {
