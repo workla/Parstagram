@@ -2,6 +2,89 @@
 
 **Parstagram** is a photo sharing app similar to Instagram but using Parse as its backend.
 
+Time spent: **12** hours spent in total
+
+## User Stories
+
+The following **required** functionality is completed:
+
+- [x] User can view the last 20 posts submitted to "Instagram".
+- [x] The user should switch between different tabs - viewing all posts (feed view), compose (capture photos form camera) and profile tabs (posts made) using fragments and a Bottom Navigation View. (2 points)
+- [x] User can pull to refresh the last 20 posts submitted to "Instagram".
+
+The following **optional** features are implemented:
+
+- [x] User sees app icon in home screen and styled bottom navigation view
+- [x] Style the feed to look like the real Instagram feed.
+- [ ] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
+- [ ] Show the username and creation time for each post.
+- [ ] User can tap a post to view post details, including timestamp and caption.
+- [ ] User Profiles
+      - [ ] Allow the logged in user to add a profile photo
+      - [ ] Display the profile photo with each post
+      - [ ] Tapping on a post's username or profile photo goes to that user's profile page and shows a grid view of the user's posts 
+- [ ] User can comment on a post and see all comments for each post in the post details screen.
+- [ ] User can like a post and see number of likes for each post in the post details screen.
+
+The following **additional** features are implemented:
+
+- [ ] List anything else that you can get done to improve the app functionality!
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+The first gif shows the basic functionality.  It shows a new user (badname) trying to log in and not being allowed, and then the same user signing up and getting in.  The three fragments with the bottom navigation screen are present.  The home tab shows the instragram feed, and then the profile screen has no posts because badname just signed up and has never posted.  Then we log out and log back in with testy, who has posted before.  Testy sees the same instagram feed, but testy's profile shows all of the posts by testy specifically.  Testy shows off creating a post and moves to the home screen to see the newly created post present.  Testy also shows that a post will only be created with both a description and a picture.  Items in this gif:
+-User can view the last 20 posts submitted to "Instagram".
+-The user should switch between different tabs - viewing all posts (feed view), compose (capture photos form camera) and profile tabs (posts made) using fragments and a Bottom Navigation View. (2 points)
+-User sees app icon in home screen and styled bottom navigation view
+-Style the feed to look like the real Instagram feed.
+
+<img src='loginToFrags.gif' title='Basic Functionality' width='' alt='Video Walkthrough' />
+
+
+The second gif shows the pull to refresh, where workla is logged in and shows the feed, but when workla pulls down, the feed refreshes, showing testy's most recent post.  Items in this gif:
+-User can pull to refresh the last 20 posts submitted to "Instagram".
+
+<img src='ParstagramPullToRefresh.gif' title='Pull to Refresh' width='' alt='Fragment Pull to Refresh' />
+
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Notes
+
+Describe any challenges encountered while building the app.
+
+It took some work to get pull to refresh to work within the fragment instead of the activity as we had done before.  I also had previously built a log out button and had to rebuild as a menu bar collapsed feature to move it out of the tab where the create post info was that was originally our only screen.  
+
+## Open-source libraries used
+
+- [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
+- [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Android
+
+## License
+
+    Copyright 2020 Lauren Work
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+
+
+
+# LAST WEEK
+
+**Parstagram** is a photo sharing app similar to Instagram but using Parse as its backend.
+
 Time spent: 11 hours spent in total
 
 ## User Stories
